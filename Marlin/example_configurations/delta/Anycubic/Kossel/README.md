@@ -6,6 +6,8 @@ These configurations activate many of the new advanced features of the Marlin fi
  * Auto Bed Leveling
  * Pause & Filament Change
 
+# Setup
+
 **Important**: Before doing anything else after updating the firmware, go to `Control > Initalize EEPROM > Initialize EEPROM` to get rid of old configurations.
 
 After updating the firmware:
