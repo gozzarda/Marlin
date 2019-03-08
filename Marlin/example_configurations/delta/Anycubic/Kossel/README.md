@@ -6,15 +6,27 @@ These configurations activate many of the new advanced features of the Marlin fi
  * Auto Bed Leveling
  * Pause & Filament Change
 
-**Important**: Before doing anything else after updating the firmware, go to `Configuration > Advanced Settings > Initialize EEPROM` to get rid of old configurations.
+**Important**: Before doing anything else after updating the firmware, go to `Control > Initalize EEPROM > Initialize EEPROM` to get rid of old configurations.
 
-Then you should execute `Configuration > Delta Calibration > Set Delta Height` and also run `Configuration > Delta Configuration > Probe Z-offset` to verify the Probe offset.
+After updating the firmware:
+- `Control > Initalize EEPROM > Initialize EEPROM`
+- `Prepare > Delta Calibration > Set Delta Height` (with probe attached)
+- `Prepare > Move Axis > Soft Endstops: Off`
+- `Prepare > Delta Calibration > Probe Z Offset` (with probe attached)
+  - Wait for the machine to stop moving
+  - Remove probe
+  - Adjust hotend down to paper's thickness above bed, then press knob to save
+  - This sets the Z Probe Offset, which is used when calibrating
+- `Prepare > Move Axis > Soft Endstops: On`
+- `Prepare > Delta Calibration > Auto Calibration` (with probe attached)
+  - Wait... it will keep going until the standard deviation of measurements drops below a threshold
+  - `Prepare > Delta Calibration > Store Settings`
+- `Prepare > Bed Leveling > Level bed`
+  - `Prepare > Delta Calibration > Store Settings`
+- Remove probe
+- Print
 
-After that you should connect the Z-Probe and start `Configuration > Delta Calibration > Auto Calibration`. When it's done don't forget to also do `Configuration > Delta Calibration > Store Settings` to make it permanent.
-
-You should also do a `Motion > Bed Leveling > Level bed` followed by `Store Settings` to ensure a perfect leveling.
-
-Please do a manual paper test (moving the nozzle slowly down to Z0 and checking with a piece of paper). If it's not perfect, use `Configuration > Advanced Settings > Probe Z Offset` to correct the difference and execute the calibration again.
+Please do a manual paper test (moving the nozzle slowly down to Z0 and checking with a piece of paper). If it's not perfect, use `Prepare > Bed Leveling > Probe Z Offset` to correct the difference and execute the calibration again.
 
 
 # Select the Configuration
